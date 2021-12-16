@@ -68,7 +68,7 @@ export const uploadImage = (data) => {
   })
 }
 
-// 上传图片
+// 获取图片
 export const getImage = (params, data) => {
   return request({
     method: 'GET',
