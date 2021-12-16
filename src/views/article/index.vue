@@ -44,7 +44,7 @@
           <el-button
           type="primary"
           :disabled='loading'
-          @click="onSubmit">筛选</el-button>
+          @click="onSubmit">查询</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -107,6 +107,7 @@
 <script>
 import { getArticles, getArticlesChannels, deleteArticle } from '../../api/article.js'
 export default {
+  name: 'ArticleIndex',
   data () {
     return {
       form: {
@@ -118,10 +119,10 @@ export default {
       articles: [],
       articlesStatus: [
         { status: 0, text: '草稿', type: 'warning' },
-        { status: 0, text: '待审核', type: '' },
-        { status: 0, text: '审核通过', type: 'success' },
-        { status: 0, text: '审核失败', type: 'info' },
-        { status: 0, text: '已删除', type: 'danger' }
+        { status: 1, text: '待审核', type: '' },
+        { status: 2, text: '审核通过', type: 'success' },
+        { status: 3, text: '审核失败', type: 'info' },
+        { status: 4, text: '已删除', type: 'danger' }
       ],
       page: 1,
       per_page: 10,
@@ -178,9 +179,10 @@ export default {
     },
     onEditArticle (id) {
       console.log(id)
+      this.$router.push('/publish?id=' + id)
     },
     onDeleteArticle (articleId) {
-      // console.log(articleId)
+      console.log(articleId)
       // console.log(articleId.toString())
       this.$confirm('此操作将删除该文章, 是否继续?', '提示', {
         confirmButtonText: '删除',
@@ -193,7 +195,7 @@ export default {
               console.log(res)
               setTimeout(() => {
                 this.loadArticles(this.page)
-              }, 700)
+              }, 500)
             })
         })
         .catch(() => {

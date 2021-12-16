@@ -9,9 +9,9 @@
         </transition>
         <span class="title">头条内容发布系统</span>
       </div>
-      <el-dropdown placement='bottom-start'>
-        <img :src="avatar" :alt="name" class="avatar">
+      <el-dropdown placement='bottom'>
         <span class="el-dropdown-link">
+          <el-avatar :size="40" :src="avatar" class="avatar"></el-avatar>
         {{ name }}
         <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
@@ -93,15 +93,15 @@ export default {
 .title{
   margin-left: 10px;
 }
-.el-dropdown{
+.el-dropdown-link{
   display: flex;
   align-items: center;
 
 }
 .avatar{
-  width: 40px;
-  height: 40px;
+  // width: 40px;
+  // height: 40px;
   margin-right: 10px;
-  border-radius: 20px;
+  // border-radius: 20px;
 }
 </style>

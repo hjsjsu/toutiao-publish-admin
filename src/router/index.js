@@ -4,6 +4,8 @@ import Home from '../views/home'
 import Login from '../views/login'
 import Layout from '../views/layout'
 import Article from '../views/article'
+import Publish from '../views/publish'
+import Image from '../views/material'
 
 Vue.use(VueRouter)
 
@@ -14,13 +16,23 @@ const routes = [
     component: Layout,
     children: [{
       path: '',
-      name: 'home',
+      name: 'Home',
       component: Home
     },
     {
       path: 'article',
       name: 'Article',
       component: Article
+    },
+    {
+      path: 'publish',
+      name: 'Publish',
+      component: Publish
+    },
+    {
+      path: 'image',
+      name: 'Image',
+      component: Image
     }]
   },
   {
